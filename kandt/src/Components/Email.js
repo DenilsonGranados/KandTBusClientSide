@@ -1,6 +1,8 @@
 import React from 'react';
-import { Form, Container,Button,Modal} from "react-bootstrap";
+import { Form, Container, Button, Modal} from "react-bootstrap";
 import { useState } from 'react';
+
+
 function Email() {
     const [show, setShow] = useState(false);
 
@@ -46,4 +48,4 @@ function Email() {
   )
 }
 
-export default Email
+export default Email;
