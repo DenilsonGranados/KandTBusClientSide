@@ -10,8 +10,20 @@ function Email() {
     const handleShow = () => setShow(true);
 
     const handleSubmit =event=>{
-        // https://medium.com/geekculture/how-to-send-emails-from-a-form-in-react-emailjs-6cdd21bb4190
-        setShow(false);
+      let email= document.getElementById("email");
+      let company= document.getElementById("org");
+      let phone_number= document.getElementById("phone number");
+      let description= document.getElementById("description");
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email,
+          company:company,
+          phone_number:phone_number,
+          description:description
+        })
+      };   
+      console.log(requestOptions)
     }
   return (
     <>
@@ -31,14 +43,14 @@ function Email() {
                 <Form.Label>Phone Number</Form.Label>
                 <Form.Control id="phone number"></Form.Control>
                 <Form.Label>How Can We Help?</Form.Label>
-                <Form.Control as="textarea" rows={3} />
+                <Form.Control id="description" as="textarea" rows={3} />
             </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleSubmit}>
             Submit
           </Button>
         </Modal.Footer>
