@@ -33,6 +33,8 @@ function Email() {
               // get error message from body or default to response status
               const error = (data && data.message) || response.status;
               return Promise.reject(error);
+          }else if (response.ok){
+            setShow(false);
           }
       })
       .catch(error => {
