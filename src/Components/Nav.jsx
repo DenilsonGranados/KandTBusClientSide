@@ -1,47 +1,43 @@
 import React from 'react';
-import { Nav, Navbar, Container } from "react-bootstrap";
-import Home from '../Pages/Home';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
 
 
 function NavBar() {
-return(
-<>
-<nav class="navbar navbar-expand-md">
-    <div class='container-xxl'>
-        <a href='.' class='navbar-brand'>
-            <span class="fw-bold text-secondary">
-                The Book
-            </span>
-        </a>
+  return(
+    <>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Container>
+          {/* This creates the logo on the header and title of company */}
+            <Navbar.Brand href="#Home">
+              <img
+                alt="T & K Bus Services Logo"
+                src="/logo.png"
+                width="100"
+                height="100"
+                className="d-inline-block align-center"
+              />{' '}
+              T & K Bus Services
+            </Navbar.Brand>
 
+          {/* This creates a responsive navbar/nav that allows the navbar to expand and collapse making the three line thingy*/}
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
 
-        {/* Toggle Button for mobile nav */}
-        <button class="navbar-toggler" type='button' data-bs-toggle="collapse" data-bs-target="#main-nav" aria controls='main-nav' aria-expanded='false' aria-label='Toggle navigation'>
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        {/* Navbar Links */}
-        <div id='main-nav' class="collapse navbar-collapse justify-content-end align-center">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="#topics" class="nav-link"> About The Book</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#reviews" class="nav-link"> Reviews</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#careers" class="nav-link"> Careers </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#aboutus" class="nav-link"> About Us </a>
-                </li>
-            </ul>
-        </div>
-
-    </div>
-</nav>
-</>  
-)
+          {/* This allows for the links to be put to the right (end) */}
+          {/* ms-auto MEANS margin-LEFT (think of a lot of padding on the left to let it be on the end), me-auto MEANS margin-RIGHT (makes it closer to the title*/}
+            <Nav className='ms-auto'>
+                  <Nav.Link href="#Reviews">Reviews</Nav.Link>
+                  <Nav.Link href="#Pricing">Pricing </Nav.Link>
+                  <Nav.Link href="#Careers">Careers</Nav.Link>
+                  <Nav.Link href="#AboutUs">About Us</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </>  
+  )
 }
 
 export default NavBar;
